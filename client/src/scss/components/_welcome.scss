@@ -1,0 +1,35 @@
+.Welcome {
+  background-color: $moonlight-blue;
+  color: $moonglow;
+  padding: 30px 20px;
+  font-family: 'BrandonLight', sans-serif;
+  display: flex;
+  span {
+    font-family: "BrandonMed", sans-serif;
+  }
+  .spacer {
+    flex: 1; // takes all available space
+  }
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  a {
+    text-decoration: none;
+    color: $moonglow;
+    &:hover {
+      color: $moonglow-accent;
+    }
+  }
+  li {
+    display: inline-block;
+    margin: 0 5px;
+  }
+}
+
+@media (min-width: 500px) {
+  .Welcome {
+    padding: 10px 10px 10px 50px;
+  }
+}

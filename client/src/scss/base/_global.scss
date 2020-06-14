@@ -1,0 +1,45 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+@font-face {
+  font-family: "BrandonMed";
+  src: url('../../Assets/Fonts/BRANDON_MED.otf');
+}
+
+@font-face {
+  font-family: "BrandonReg";
+  src: url('../../Assets/Fonts/BRANDON_REG.otf');
+}
+
+@font-face {
+  font-family: "BrandonLight";
+  src: url('../../Assets/Fonts/BRANDON_LIGHT.otf');
+}
+
+body {
+  font-family: "BrandonReg", sans-serif;
+  font-size: 20px;
+  color: $midnight-gray;
+  background: $moonglow;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+ul {
+  list-style: none;
+}
+
+.main-header {
+  font-family: "BrandonMed", sans-serif;
+  font-size: 24px
+}
+
+.header {
+  font-family: "BrandonMed", sans-serif;
+  font-size: 20px;
+}
