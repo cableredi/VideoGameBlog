@@ -4,9 +4,9 @@ const xss = require('xss');
 const REGEX_UPPER_LOWER_NUMBER_SPECIAL = /(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&])[\S]+/;
 
 const UsersService = {
-  hasUserWithUserName(db, user_name) {
+  hasUserWithUserName(db, username) {
     return db('users')
-      .where({ user_name })
+      .where({ username })
       .first()
       .then(user => !!user)
   },
@@ -36,8 +36,8 @@ const UsersService = {
 
     return null
   },
-  validateUserName(user_name) {
-    if (user_name.startsWith(' ') || user_name.endsWith(' ')) {
+  validateUserName(username) {
+    if (username.startsWith(' ') || username.endsWith(' ')) {
       return 'User Name must not start or end with empty spaces'
     }
   },
@@ -49,7 +49,7 @@ const UsersService = {
       user_id: user.user_id,
       first_name: xss(user.first_name),
       last_name: xss(user.last_name),
-      user_name: xss(user.user_name),
+      username: xss(user.username),
       date_created: new Date(user.date_created),
     }
   },

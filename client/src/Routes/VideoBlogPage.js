@@ -7,18 +7,22 @@ import Comments from "../Components/Comments";
 import VideosApiService from "../Services/videos-api-service";
 
 export default function VideoBlogPage() {
-  const { videos, comments, setError, updateSelectedVideo, updateVideo } = useContext(
-    GlobalContext
-  );
+  const {
+    videos,
+    comments,
+    setError,
+    updateSelectedVideo,
+    updateVideo,
+  } = useContext(GlobalContext);
 
   // Update videos state and database
-  const handleUpdateVideo = selectedVideo => {
-    updateVideo(selectedVideo);
-
+  const handleUpdateVideo = (selectedVideo) => {
     VideosApiService.patchVideos(selectedVideo)
-      .then((data) => {})
+      .then((data) => {
+        updateVideo(selectedVideo);
+      })
       .catch(setError);
-  }
+  };
 
   // render Video Comments
   const videoComments = () => {

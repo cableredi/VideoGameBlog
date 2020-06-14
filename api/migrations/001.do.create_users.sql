@@ -3,7 +3,7 @@ CREATE TABLE users (
   username TEXT NOT NULL UNIQUE,
   first_name TEXT NOT NULL,
   last_name TEXT NOT NULL,
-  avatar TEXT NOT NULL,
+  avatar TEXT,
   password TEXT NOT NULL,
   date_created TIMESTAMP DEFAULT now() NOT NULL
 );

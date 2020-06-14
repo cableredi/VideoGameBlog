@@ -1,0 +1,47 @@
+.Form__header {
+  font-family: "BrandonMed", sans-serif;
+  font-size: 20px;
+  color: $midnight-gray;
+}
+
+.Form__outer {
+  font-family: "BrandonLight", sans-serif;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  padding: 20px;
+  & li {
+    justify-self: left;
+    margin-top: 8px;
+  }
+  & label {
+    margin-right: 10px;
+    display: inline-block;
+    width: 150px;
+  }
+  & input {
+    padding: 5px;
+  }
+  & button {
+    font-size: 18px;
+    color: $moonglow;
+    background-color: $orange;
+    border: 0;
+    margin-top: 20px;
+    letter-spacing: 2px;
+    padding: 15px 45px;
+    &:hover {
+      background-color: $orange-accent;
+    }
+  }
+  .Form__button {
+    text-align: center;
+  }
+}
+
+.Form__required,
+.Form__error {
+  color: $orange;
+  font-size: 0.8em;
+  font-style: italic;
+}

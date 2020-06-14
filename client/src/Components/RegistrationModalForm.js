@@ -4,9 +4,7 @@ import useForm from "./Hooks/useForm";
 import ValidateError from "./ValidateError";
 import AuthApiService from "../Services/auth-service";
 
-const Required = () => <span className="form__required">*</span>;
-
-export default function RegistrationForm(props) {
+export default function RegistrationModalForm(props) {
   const { onRegistrationSuccess } = props;
   const [error, setError] = useState("");
   const REGEX_UPPER_LOWER_NUMBER_SPECIAL = /(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&])[\S]+/;
@@ -20,13 +18,15 @@ export default function RegistrationForm(props) {
     avatar: { value: "", error: "" },
   };
 
+  const Required = () => <span className="Form__required">*</span>;
+
   let history = useHistory();
 
   /*********************/
   /* Update Database   */
   /*********************/
   const onSubmitForm = (state) => {
-    console.log('state', state)
+    console.log("state", state);
     const { first_name, last_name, username, password } = state;
 
     AuthApiService.postUser({
@@ -37,10 +37,9 @@ export default function RegistrationForm(props) {
     })
       .then((user) => {
         onRegistrationSuccess();
-        history.goBack();
       })
       .catch((res) => {
-        setError(res.error);
+        setError(res);
       });
   };
 
@@ -112,13 +111,11 @@ export default function RegistrationForm(props) {
     avatar,
   } = values;
 
-
   return (
-    <form className="Registration__form" onSubmit={handleOnSubmit}>
-      <ul className="flex-outer">
-        <li role="alert">
-          {error && <p className="form__input-error">{error}</p>}
-        </li>
+    <form className="Form" onSubmit={handleOnSubmit}>
+      <div className="Form__header">Register</div>
+      <ul className="Form__outer">
+        <li role="alert">{error && <p className="Form__error">{error}</p>}</li>
 
         <li>
           <label htmlFor="username">
@@ -235,12 +232,12 @@ export default function RegistrationForm(props) {
             <ValidateError message={errors.avatar} />
           )}
         </li>
+        <li className='Form__button'>
+          <button className="button" type="submit" disabled={disable}>
+            Register
+          </button>
+        </li>
       </ul>
-      <div className="form__button-group">
-        <button className="button" type="submit" disabled={disable}>
-          Register
-        </button>
-      </div>
     </form>
   );
 }

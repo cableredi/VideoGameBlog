@@ -18,8 +18,8 @@ const TokenService = {
   hasAuthToken() {
     return !!TokenService.getAuthToken()
   },
-  makeBasicAuthToken(userName, password) {
-    return window.btoa(`${userName}:${password}`)
+  makeBasicAuthToken(username, password) {
+    return window.btoa(`${username}:${password}`)
   },
   parseJwt(jwt) {
     return jwtDecode(jwt)

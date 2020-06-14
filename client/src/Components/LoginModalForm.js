@@ -1,10 +1,7 @@
 import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
 import useForm from "./Hooks/useForm";
 import AuthApiService from "../Services/auth-service";
 import ValidateError from "./ValidateError";
-
-const Required = () => <span className="form__required">*</span>;
 
 export default function LoginModalForm(props) {
   const { onLoginSuccess } = props;
@@ -15,7 +12,7 @@ export default function LoginModalForm(props) {
     password: { value: "", error: "" },
   };
 
-  let history = useHistory();
+  const Required = () => <span className="Form__required">*</span>;
 
   /***********************/
   /* handleSubmitJWTAuth */
@@ -31,7 +28,6 @@ export default function LoginModalForm(props) {
     })
       .then((res) => {
         onLoginSuccess();
-        history.goBack();
       })
       .catch((res) => {
         setError(res.error);
@@ -62,17 +58,17 @@ export default function LoginModalForm(props) {
   const { username, password } = values;
 
   return (
-    <form className="Login__form" onSubmit={handleOnSubmit}>
-      <div className="required">* Required Fields</div>
+    <form className="Form" onSubmit={handleOnSubmit}>
+      <div className="Form__header">Login</div>
 
-      <ul className="flex-outer">
-        <li role="alert">
-          {error && <p className="form__input-error">{error}</p>}
+      <ul className="Form__outer">
+        <li role="Form__alert">
+          {error && <p className="Form__error">{error}</p>}
         </li>
 
         <li className="username">
           <label htmlFor="username">
-            User name
+            Username
             <Required />
           </label>
           <input
@@ -108,12 +104,12 @@ export default function LoginModalForm(props) {
             <ValidateError message={errors.password} />
           )}
         </li>
+        <li className='Form__button'>
+          <button className="button" type="submit" disabled={disable}>
+            Login
+          </button>
+        </li>
       </ul>
-      <div className="form__button-group">
-        <button className="button" type="submit" disabled={disable}>
-          Login
-        </button>
-      </div>
     </form>
   );
 }
