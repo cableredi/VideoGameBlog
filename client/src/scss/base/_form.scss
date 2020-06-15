@@ -22,7 +22,7 @@
   & input {
     padding: 5px;
   }
-  & button {
+  & .button {
     font-size: 18px;
     color: $moonglow;
     background-color: $orange;
@@ -36,6 +36,17 @@
   }
   .Form__button {
     text-align: center;
+  }
+  & .button-link {
+    font-family: 'BrandonLight', sans-serif;
+    text-decoration: none;
+    color: $midnight-gray;
+    border: none;
+    background-color: $moonglow;
+    font-size: 18px;
+    &:hover {
+      color: $orange-accent;
+    }
   }
 }
 

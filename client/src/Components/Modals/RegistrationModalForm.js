@@ -1,11 +1,10 @@
 import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
-import useForm from "./Hooks/useForm";
-import ValidateError from "./ValidateError";
-import AuthApiService from "../Services/auth-service";
+import useForm from "../Hooks/useForm";
+import ValidateError from "../ValidateError";
+import AuthApiService from "../../Services/auth-service";
 
 export default function RegistrationModalForm(props) {
-  const { onRegistrationSuccess } = props;
+  const { onRegistrationSuccess, onLoginClick } = props;
   const [error, setError] = useState("");
   const REGEX_UPPER_LOWER_NUMBER_SPECIAL = /(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&])[\S]+/;
 
@@ -19,8 +18,6 @@ export default function RegistrationModalForm(props) {
   };
 
   const Required = () => <span className="Form__required">*</span>;
-
-  let history = useHistory();
 
   /*********************/
   /* Update Database   */
@@ -42,6 +39,11 @@ export default function RegistrationModalForm(props) {
         setError(res);
       });
   };
+
+  const handleLoginClick = () => {
+    //go to register modal
+    onLoginClick();
+  }
 
   /*********************/
   /* Validate Fields   */
@@ -235,6 +237,11 @@ export default function RegistrationModalForm(props) {
         <li className='Form__button'>
           <button className="button" type="submit" disabled={disable}>
             Register
+          </button>
+        </li>
+        <li className='Form__button'>
+          <button className="button-link" onClick={() => handleLoginClick()}>
+            Login
           </button>
         </li>
       </ul>

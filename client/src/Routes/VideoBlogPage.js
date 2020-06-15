@@ -5,6 +5,7 @@ import Header from "../Components/Header";
 import Videos from "../Components/Videos";
 import Comments from "../Components/Comments";
 import VideosApiService from "../Services/videos-api-service";
+import CommentsApiService from '../Services/comments-api-service';
 
 export default function VideoBlogPage() {
   const {
@@ -13,6 +14,7 @@ export default function VideoBlogPage() {
     setError,
     updateSelectedVideo,
     updateVideo,
+    addComment,
   } = useContext(GlobalContext);
 
   // Update videos state and database
@@ -60,6 +62,15 @@ export default function VideoBlogPage() {
     handleUpdateVideo(selectedVideo);
   };
 
+  const onSubmitComments = (comment) => {
+    console.log("submit comment", comment);
+    CommentsApiService.postComment(comment)
+      .then((data) => {
+        addComment(comment);
+      })
+      .catch(setError);
+  };
+
   return (
     <section className="VideoBlog">
       <Welcome />
@@ -70,6 +81,7 @@ export default function VideoBlogPage() {
         playVideo={onClickPlayVideo}
         thumbsUp={onClickThumbsUp}
         thumbsDown={onClickThumbsDown}
+        handleSubmitComments={onSubmitComments}
       />
       <Comments comments={videoComments()} />
     </section>

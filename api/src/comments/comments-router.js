@@ -2,6 +2,8 @@ const express = require("express");
 const xss = require("xss");
 const { requireAuth } = require("../middleware/jwt-auth");
 const CommentsService = require("./comments-service");
+const logger = require("../logger");
+const path = require("path");
 
 const commentsRouter = express.Router();
 const jsonParser = express.json();
@@ -37,19 +39,19 @@ commentsRouter
   })
 
   .post(requireAuth, jsonParser, (req, res, next) => {
-    const { video_id, user_id, comment } = req.body;
+    const { video_id, user_comment } = req.body;
+    console.log('post', req.body)
 
     const newComment = {
       video_id,
-      user_id,
-      comment,
+      user_comment,
     };
 
     const numberOfValues = Object.values(newComment).filter(Boolean).length;
     if (numberOfValues === 0) {
       return res.status(400).json({
         error: {
-          message: `Request body must contain videos id, name, avatar and comment`,
+          message: `Request body must contain video id and comment`,
         },
       });
     }

@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import useForm from "./Hooks/useForm";
-import AuthApiService from "../Services/auth-service";
-import ValidateError from "./ValidateError";
+import useForm from "../Hooks/useForm";
+import AuthApiService from "../../Services/auth-service";
+import ValidateError from "../ValidateError";
 
 export default function LoginModalForm(props) {
-  const { onLoginSuccess } = props;
+  const { onLoginSuccess, onRegisterClick } = props;
   const [error, setError] = useState("");
 
   const stateSchema = {
@@ -34,6 +34,11 @@ export default function LoginModalForm(props) {
       });
   };
 
+  const handleRegisterClick = () => {
+    //go to register modal
+    onRegisterClick();
+  }
+
   /************************/
   /* Validate Form Fields */
   /************************/
@@ -62,9 +67,7 @@ export default function LoginModalForm(props) {
       <div className="Form__header">Login</div>
 
       <ul className="Form__outer">
-        <li role="Form__alert">
-          {error && <p className="Form__error">{error}</p>}
-        </li>
+        <li>{error && <p className="Form__error">{error}</p>}</li>
 
         <li className="username">
           <label htmlFor="username">
@@ -104,9 +107,14 @@ export default function LoginModalForm(props) {
             <ValidateError message={errors.password} />
           )}
         </li>
-        <li className='Form__button'>
+        <li className="Form__button">
           <button className="button" type="submit" disabled={disable}>
             Login
+          </button>
+        </li>
+        <li className="Form__button">
+          <button className="button-link" onClick={() => handleRegisterClick()}>
+            Register
           </button>
         </li>
       </ul>

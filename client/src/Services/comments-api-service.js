@@ -1,4 +1,5 @@
 import config from "../config";
+import TokenService from './token-service';
 
 const CommentsApiService = {
   getAll() {
@@ -17,7 +18,7 @@ const CommentsApiService = {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${config.API_KEY}`,
+        Authorization: `bearer ${TokenService.getAuthToken()}`
       },
       body: JSON.stringify(comment),
     }).then((res) =>

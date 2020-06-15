@@ -1,11 +1,11 @@
 import React from "react";
-import LoginModalForm from "../Components/LoginModalForm";
-import RegistrationModalForm from "../Components/RegistrationModalForm";
+import LoginModalForm from "./Modals/LoginModalForm";
+import RegistrationModalForm from "./Modals/RegistrationModalForm";
 import TokenService from "../Services/token-service";
 import AuthApiService from "../Services/auth-service";
 import IdleService from "../Services/idle-service";
-import useToggle from "../Components/Hooks/useToggle";
-import Modal from "../Components/Modal";
+import useToggle from "./Hooks/useToggle";
+import Modal from "./Modals/Modal";
 
 export default function Welcome() {
   const [openLogin, setOpenLogin] = useToggle(false);
@@ -24,6 +24,7 @@ export default function Welcome() {
             <span> {TokenService.readJwtToken().first_name} </span>
           ) : null}
         </div>
+        <div className='spacer'></div>
         <div className="Welcome__nav">
           <ul>
             <li>
@@ -39,7 +40,7 @@ export default function Welcome() {
     return (
       <div className="Welcome">
         <div className="Welcome__name">Welcome</div>
-
+        <div className='spacer'></div>
         <div className="Welcome__nav">
           <ul>
             <button onClick={() => setOpenLogin()}>Login</button>
@@ -73,18 +74,29 @@ export default function Welcome() {
     setOpenLogin(true);
   };
 
+  const handleLoginClick = () => {
+    setOpenRegistration(false);
+    setOpenLogin(true);
+  };
+
+  const handleRegisterClick = () => {
+    setOpenLogin(false);
+    setOpenRegistration(true);
+  }
+
   return (
     <>
       {TokenService.hasAuthToken() ? renderLogoutLink() : renderLoginLink()}
       {openLogin && (
         <Modal open={openLogin} toggle={setOpenLogin}>
-          <LoginModalForm onLoginSuccess={() => handleLoginSuccess()} />
+          <LoginModalForm onLoginSuccess={() => handleLoginSuccess()} onRegisterClick={() => handleRegisterClick()} />
         </Modal>
       )}
       {openRegistration && (
         <Modal open={openRegistration} toggle={setOpenRegistration}>
           <RegistrationModalForm
             onRegistrationSuccess={handleRegistrationSuccess}
+            onLoginClick={() => handleLoginClick()} 
           />
         </Modal>
       )}

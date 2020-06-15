@@ -15,9 +15,13 @@
     padding: 0;
     margin: 0;
   }
-  a {
+  button {
+    font-family: 'BrandonLight', sans-serif;
     text-decoration: none;
     color: $moonglow;
+    border: none;
+    background-color: $moonlight-blue;
+    font-size: 18px;
     &:hover {
       color: $moonglow-accent;
     }

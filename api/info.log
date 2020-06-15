@@ -1,31 +1,6 @@
-{"message":"Unauthorized request to path: /api/videos","level":"error"}
-{"message":"Unauthorized request to path: /api/videos","level":"error"}
-{"message":"Unauthorized request to path: /api/videos","level":"error"}
-{"message":"Unauthorized request to path: /api/videos","level":"error"}
-{"message":"Unauthorized request to path: /api/videos","level":"error"}
-{"message":"Unauthorized request to path: /api/videos","level":"error"}
-{"message":"Unauthorized request to path: /api/videos","level":"error"}
-{"message":"Unauthorized request to path: /api/videos","level":"error"}
-{"message":"Unauthorized request to path: /api/videos","level":"error"}
-{"message":"Unauthorized request to path: /api/videos","level":"error"}
-{"message":"Unauthorized request to path: /api/videos","level":"error"}
-{"message":"Cannot read property 'user_id' of undefined","level":"error"}
-{"message":"Cannot read property 'user_id' of undefined","level":"error"}
-{"message":"connect ECONNREFUSED 127.0.0.1:5432","level":"error"}
-{"message":"connect ECONNREFUSED 127.0.0.1:5432","level":"error"}
-{"message":"update \"videos\" set \"views\" = $1, \"likes\" = $2, \"dislikes\" = $3 where \"video_id\" = $4 - column \"video_id\" does not exist","level":"error"}
-{"message":"database \"video-blog\" does not exist","level":"error"}
-{"message":"read ECONNRESET","level":"error"}
-{"message":"database \"video-blog\" does not exist","level":"error"}
-{"message":"database \"video-blog\" does not exist","level":"error"}
-{"message":"select * from \"videos\" where \"video_id\" = $1 limit $2 - invalid input syntax for type integer: \"undefined\"","level":"error"}
-{"message":"select * from \"videos\" where \"video_id\" = $1 limit $2 - invalid input syntax for type integer: \"undefined\"","level":"error"}
-{"message":"select * from \"videos\" where \"video_id\" = $1 limit $2 - invalid input syntax for type integer: \"undefined\"","level":"error"}
-{"message":"select * from \"videos\" where \"video_id\" = $1 limit $2 - invalid input syntax for type integer: \"undefined\"","level":"error"}
-{"message":"Unauthorized request to path: /api/auth/login","level":"error"}
-{"message":"select * from \"users\" where \"user_name\" = $1 limit $2 - column \"user_name\" does not exist","level":"error"}
-{"message":"select * from \"users\" where \"user_name\" = $1 limit $2 - column \"user_name\" does not exist","level":"error"}
-{"message":"secretOrPrivateKey must have a value","level":"error"}
-{"message":"secretOrPrivateKey must have a value","level":"error"}
-{"message":"select * from \"users\" where \"user_name\" = $1 limit $2 - column \"user_name\" does not exist","level":"error"}
-{"message":"insert into \"users\" (\"date_created\", \"first_name\", \"last_name\", \"password\", \"username\") values ($1, $2, $3, $4, $5) returning * - null value in column \"avatar\" violates not-null constraint","level":"error"}
+{"message":"Unauthorized request to path: /api/comments","level":"error"}
+{"message":"insert into \"comments\" (\"comment\", \"user_id\", \"video_id\") values ($1, $2, $3) returning * - column \"comment\" of relation \"comments\" does not exist","level":"error"}
+{"message":"insert into \"comments\" (\"user_comment\", \"user_id\", \"video_id\") values ($1, $2, $3) returning * - duplicate key value violates unique constraint \"comments_pkey\"","level":"error"}
+{"message":"logger is not defined","level":"error"}
+{"message":"Comments with id 3 created.","level":"info"}
+{"message":"path is not defined","level":"error"}

@@ -18,7 +18,7 @@ const morganOption = NODE_ENV === "production" ? "tiny" : "dev";
 app.use(morgan(morganOption));
 app.use(cors());
 app.use(helmet());
-app.use(validateBearerToken);
+//app.use(validateBearerToken);
 
 app.use("/api/videos", videosRouter);
 app.use("/api/comments", commentsRouter);
