@@ -43,6 +43,9 @@ export default (state, action) => {
         video.video_id !== updatedVideo.video_id ? video : updatedVideo
       );
 
+    case "SET_SHOWADDCOMMENTS":
+      return action.payload;
+
     default:
       return state;
   }

@@ -4,3 +4,66 @@
 {"message":"logger is not defined","level":"error"}
 {"message":"Comments with id 3 created.","level":"info"}
 {"message":"path is not defined","level":"error"}
+{"message":"Comments with id 4 created.","level":"info"}
+{"message":"Comments with id 5 created.","level":"info"}
+{"message":"Comments with id 6 created.","level":"info"}
+{"message":"connect ECONNREFUSED 127.0.0.1:5432","level":"error"}
+{"message":"Comments with id 1 created.","level":"info"}
+{"message":"Comments with id 1 created.","level":"info"}
+{"message":"Comments with id 1 created.","level":"info"}
+{"message":"Comments with id 1 created.","level":"info"}
+{"message":"Comments with id 1 created.","level":"info"}
+{"message":"Comments with id 1 created.","level":"info"}
+{"message":"Comments with id 1 created.","level":"info"}
+{"message":"Comments with id 1 created.","level":"info"}
+{"message":"Comments with id 1 created.","level":"info"}
+{"message":"Comments with id 1 created.","level":"info"}
+{"message":"Comments with id 1 created.","level":"info"}
+{"message":"Comments with id 1 created.","level":"info"}
+{"message":"Comments with id 1 created.","level":"info"}
+{"message":"Comments with id 1 created.","level":"info"}
+{"message":"Comments with id 1 created.","level":"info"}
+{"message":"Comments with id 1 created.","level":"info"}
+{"message":"Comments with id 1 created.","level":"info"}
+{"message":"Comments with id 1 created.","level":"info"}
+{"message":"Comments with id 1 created.","level":"info"}
+{"message":"Comments with id 1 created.","level":"info"}
+{"message":"Comments with id 1 created.","level":"info"}
+{"message":"Comments with id 1 created.","level":"info"}
+{"message":"Comments with id 1 created.","level":"info"}
+{"message":"Comments with id 1 created.","level":"info"}
+{"message":"Comments with id 1 created.","level":"info"}
+{"message":"Comments with id 1 created.","level":"info"}
+{"message":"Comments with id 1 created.","level":"info"}
+{"message":"Comments with id 1 created.","level":"info"}
+{"message":"Comments with id 1 created.","level":"info"}
+{"message":"Comments with id 1 created.","level":"info"}
+{"message":"Comments with id 1 created.","level":"info"}
+{"message":"Comments with id 1 created.","level":"info"}
+{"message":"Comments with id 1 created.","level":"info"}
+{"message":"Comments with id 1 created.","level":"info"}
+{"message":"Comments with id 1 created.","level":"info"}
+{"message":"Comments with id 1 created.","level":"info"}
+{"message":"Comments with id 1 created.","level":"info"}
+{"message":"Comments with id 1 created.","level":"info"}
+{"message":"Comments with id 1 created.","level":"info"}
+{"message":"connect ECONNREFUSED 127.0.0.1:5432","level":"error"}
+{"message":"connect ECONNREFUSED 127.0.0.1:5432","level":"error"}
+{"message":"Comments with id 7 created.","level":"info"}
+{"message":"Comments with id 8 created.","level":"info"}
+{"message":"Comments with id 9 created.","level":"info"}
+{"message":"Comments with id 10 created.","level":"info"}
+{"message":"the database system is starting up","level":"error"}
+{"message":"read ECONNRESET","level":"error"}
+{"message":"the database system is starting up","level":"error"}
+{"message":"the database system is starting up","level":"error"}
+{"message":"the database system is starting up","level":"error"}
+{"message":"the database system is starting up","level":"error"}
+{"message":"connect ECONNREFUSED 127.0.0.1:5432","level":"error"}
+{"message":"connect ECONNREFUSED 127.0.0.1:5432","level":"error"}
+{"message":"Comments with id 11 created.","level":"info"}
+{"message":"Comments with id 12 created.","level":"info"}
+{"message":"Comments with id 13 created.","level":"info"}
+{"message":"Comments with id 14 created.","level":"info"}
+{"message":"Comments with id 15 created.","level":"info"}
+{"message":"Comments with id 16 created.","level":"info"}

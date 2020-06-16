@@ -1,24 +1,10 @@
 import React from "react";
-import { formatDistanceToNow, formatDistance } from "date-fns";
 import Avatar from "../Assets/Images/placeholder_avatar.png";
+import { getDateTimeDifference } from "./Utils/utils";
 
 export default function Comments(props) {
   const { comments } = props;
-
-  const getUTCDate = (origDate) => {
-    let date = new Date(origDate);
-  
-    return new Date(date.getTime() + date.getTimezoneOffset()*60*1000);
-  }
-
-  const getDateTimeDifference = (created_date) => {
-    let createdDate = new Date(created_date);
-    createdDate.toString();
-
-    let todaysDate = getUTCDate(new Date().toString());
-
-    return formatDistance(createdDate, todaysDate);
-  };
+  comments.sort((a, b) => new Date(b.date_created) - new Date(a.date_created));
 
   const getComments =
     comments &&

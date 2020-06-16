@@ -40,7 +40,6 @@ commentsRouter
 
   .post(requireAuth, jsonParser, (req, res, next) => {
     const { video_id, user_comment } = req.body;
-    console.log('post', req.body)
 
     const newComment = {
       video_id,
@@ -68,5 +67,27 @@ commentsRouter
       })
       .catch(next);
   });
+
+  commentsRouter
+  .route("/:comment_id")
+
+  .all((req, res, next) => {
+    CommentsService.getById(req.app.get("db"), req.params.comment_id)
+      .then((comment) => {
+        if (!comment) {
+          return res.status(404).json({
+            error: { message: "Comment Not Found" },
+          });
+        }
+        res.comment = comment;
+        next();
+      })
+      .catch(next);
+  })
+
+  .get((req, res) => {
+    console.log('getByUD', res.comment)
+    res.json(serializeComments(res.comment))
+  })
 
 module.exports = commentsRouter;

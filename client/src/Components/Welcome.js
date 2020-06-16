@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import LoginModalForm from "./Modals/LoginModalForm";
 import RegistrationModalForm from "./Modals/RegistrationModalForm";
 import TokenService from "../Services/token-service";
@@ -6,13 +6,23 @@ import AuthApiService from "../Services/auth-service";
 import IdleService from "../Services/idle-service";
 import useToggle from "./Hooks/useToggle";
 import Modal from "./Modals/Modal";
+import { GlobalContext } from "../Context/GlobalContext";
 
 export default function Welcome() {
   const [openLogin, setOpenLogin] = useToggle(false);
   const [openRegistration, setOpenRegistration] = useToggle(false);
 
+  const { setShowAddComments } = useContext(GlobalContext);
+
+  useEffect(() => {
+    TokenService.hasAuthToken()
+      ? setShowAddComments(true)
+      : setShowAddComments(false);
+  }, [setShowAddComments, TokenService.hasAuthToken()]);
+
   const handleLogoutClick = () => {
     TokenService.clearAuthToken();
+    setShowAddComments(false);
   };
 
   const renderLogoutLink = () => {
@@ -24,7 +34,7 @@ export default function Welcome() {
             <span> {TokenService.readJwtToken().first_name} </span>
           ) : null}
         </div>
-        <div className='spacer'></div>
+        <div className="spacer"></div>
         <div className="Welcome__nav">
           <ul>
             <li>
@@ -40,7 +50,7 @@ export default function Welcome() {
     return (
       <div className="Welcome">
         <div className="Welcome__name">Welcome</div>
-        <div className='spacer'></div>
+        <div className="spacer"></div>
         <div className="Welcome__nav">
           <ul>
             <button onClick={() => setOpenLogin()}>Login</button>
@@ -82,21 +92,24 @@ export default function Welcome() {
   const handleRegisterClick = () => {
     setOpenLogin(false);
     setOpenRegistration(true);
-  }
+  };
 
   return (
     <>
       {TokenService.hasAuthToken() ? renderLogoutLink() : renderLoginLink()}
       {openLogin && (
         <Modal open={openLogin} toggle={setOpenLogin}>
-          <LoginModalForm onLoginSuccess={() => handleLoginSuccess()} onRegisterClick={() => handleRegisterClick()} />
+          <LoginModalForm
+            onLoginSuccess={() => handleLoginSuccess()}
+            onRegisterClick={() => handleRegisterClick()}
+          />
         </Modal>
       )}
       {openRegistration && (
         <Modal open={openRegistration} toggle={setOpenRegistration}>
           <RegistrationModalForm
             onRegistrationSuccess={handleRegistrationSuccess}
-            onLoginClick={() => handleLoginClick()} 
+            onLoginClick={() => handleLoginClick()}
           />
         </Modal>
       )}

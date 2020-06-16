@@ -1,11 +1,11 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { GlobalContext } from "../Context/GlobalContext";
 import Welcome from "../Components/Welcome";
 import Header from "../Components/Header";
 import Videos from "../Components/Videos";
 import Comments from "../Components/Comments";
 import VideosApiService from "../Services/videos-api-service";
-import CommentsApiService from '../Services/comments-api-service';
+import CommentsApiService from "../Services/comments-api-service";
 
 export default function VideoBlogPage() {
   const {
@@ -63,10 +63,13 @@ export default function VideoBlogPage() {
   };
 
   const onSubmitComments = (comment) => {
-    console.log("submit comment", comment);
     CommentsApiService.postComment(comment)
       .then((data) => {
-        addComment(comment);
+        CommentsApiService.getById(data.comment_id)
+          .then((data) => {
+            addComment(data);
+          })
+          .catch(setError);
       })
       .catch(setError);
   };

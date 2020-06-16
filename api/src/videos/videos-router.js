@@ -43,6 +43,10 @@ videosRouter
       .catch(next);
   })
 
+  .get((req, res) => {
+    res.json(serializeVideos(res.video))
+  })
+
   .patch(jsonParser, (req, res, next) => {
     const {
       views,

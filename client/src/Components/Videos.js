@@ -1,11 +1,20 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import ThumbsUp from "../Assets/Images/thumbs_up.svg";
 import ThumbsDown from "../Assets/Images/thumbs_down.svg";
-import TokenService from "../Services/token-service";
 import CommentForm from "./CommentForm";
+import { GlobalContext } from "../Context/GlobalContext";
 
 export default function Videos(props) {
-  const { videos, selectedVideo, thumbsUp, thumbsDown, playVideo, handleSubmitComments } = props;
+  const {
+    videos,
+    selectedVideo,
+    thumbsUp,
+    thumbsDown,
+    playVideo,
+    handleSubmitComments,
+  } = props;
+
+  const {showAddComments} = useContext(GlobalContext);
 
   const handleVideoClick = (video) => {
     selectedVideo(video);
@@ -74,8 +83,11 @@ export default function Videos(props) {
         </div>
       </div>
 
-      {TokenService.hasAuthToken() ? (
-        <CommentForm selectedVideo={video} handleSubmitComments={handleSubmitComments} />
+      {showAddComments ? (
+        <CommentForm
+          selectedVideo={video}
+          handleSubmitComments={handleSubmitComments}
+        />
       ) : (
         <div className="Videos__comments">
           <span className="Videos__comments-login">

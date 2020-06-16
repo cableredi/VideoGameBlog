@@ -7,6 +7,14 @@ export const GlobalContext = createContext(null);
 export const GlobalProvider = ({ children }) => {
   const [videos, dispatchVideos] = useReducer(VideosReducer, []);
   const [comments, dispatchComments] = useReducer(CommentsReducer, []);
+  const [showAddComments, dispatchShowAddComments] = useReducer(VideosReducer, false);
+
+  const setShowAddComments = (show) => {
+    dispatchShowAddComments({
+      type: "SET_SHOWADDCOMMENTS",
+      payload: show,
+    });
+  };
 
   const setVideos = (videos) => {
     dispatchVideos({
@@ -53,6 +61,8 @@ export const GlobalProvider = ({ children }) => {
         updateVideo,
         setComments,
         addComment,
+        showAddComments: showAddComments,
+        setShowAddComments,
       }}
     >
       {children}

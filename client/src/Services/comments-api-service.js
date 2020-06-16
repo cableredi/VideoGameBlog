@@ -18,13 +18,24 @@ const CommentsApiService = {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `bearer ${TokenService.getAuthToken()}`
+        Authorization: `Bearer ${TokenService.getAuthToken()}`
       },
       body: JSON.stringify(comment),
     }).then((res) =>
       !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
     );
   },
+  getById(comment_id) {
+    return fetch(config.API_ENDPOINT_COMMENTS + `/${comment_id}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${config.API_KEY}`,
+      },
+    }).then((res) =>
+      !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
+    );
+  }
 };
 
 export default CommentsApiService;
