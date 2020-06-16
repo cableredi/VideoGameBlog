@@ -15,7 +15,7 @@
   margin: auto;
   padding: 20px;
   border: 1px solid $midnight-gray;
-  width: 40%;
+  width: 90%;
 }
 
 .CloseButton {
@@ -28,5 +28,11 @@
     color: $orange-accent;
     text-decoration: none;
     cursor: pointer;
+  }
+}
+
+@media (min-width: 650px) {
+  .ModalBody {
+    width: 40%;
   }
 }

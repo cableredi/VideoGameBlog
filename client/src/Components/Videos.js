@@ -82,7 +82,7 @@ export default function Videos(props) {
           {video.dislikes}
         </div>
       </div>
-
+      <div className="Videos__comments-header">Comments</div>
       {showAddComments ? (
         <CommentForm
           selectedVideo={video}

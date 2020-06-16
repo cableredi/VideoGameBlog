@@ -37,7 +37,6 @@ export default function CommentForm(props) {
   return (
     <>
       <form className="Videos__comments" onSubmit={handleOnSubmit}>
-        <div className="Videos__comments-header">Comments</div>
         <textarea
           name="user_comment"
           id="user_comment"
