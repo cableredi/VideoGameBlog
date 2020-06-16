@@ -86,7 +86,6 @@ commentsRouter
   })
 
   .get((req, res) => {
-    console.log('getByUD', res.comment)
     res.json(serializeComments(res.comment))
   })
 

@@ -23,7 +23,6 @@ export default function RegistrationModalForm(props) {
   /* Update Database   */
   /*********************/
   const onSubmitForm = (state) => {
-    console.log("state", state);
     const { first_name, last_name, username, password } = state;
 
     AuthApiService.postUser({

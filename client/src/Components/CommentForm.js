@@ -14,6 +14,7 @@ export default function CommentForm(props) {
       user_comment: state.user_comment,
     }
     handleSubmitComments(newComment);
+    state.user_comment = '';
   };
 
   const stateValidatorSchema = {
