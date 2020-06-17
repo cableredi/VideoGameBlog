@@ -1,0 +1,51 @@
+.Landing {
+  margin: 10px;
+  font-family: "BrandonReg", sans-serif;
+  & header {
+    margin-bottom: 20px;
+  }
+  & h1 {
+    font-size: 25px;
+    color: $orange;
+  }
+  & h2 {
+    font-size: 30px;
+  }
+  & a {
+    display: block;
+    text-align: center;
+  }
+  & button {
+    font-size: 18px;
+    color: $moonglow;
+    background-color: $orange;
+    border: 0;
+    margin: 20px 0;
+    letter-spacing: 2px;
+    padding: 15px 45px;
+    &:hover {
+      background-color: $orange-accent;
+    }
+  }
+  &__img {
+    text-align: center;
+    & img {
+      border: 1px solid $midnight-gray;
+      width: 80%;
+      height: auto;
+    }
+  }
+  &__poweredby {
+    text-align: center;
+    & img {
+      width: 150px;
+      height: auto;
+    }
+  }
+}
+
+@media (min-width: 500px) {
+  .Landing {
+    margin: 50px;
+  }
+}

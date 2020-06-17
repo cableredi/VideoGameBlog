@@ -6,6 +6,7 @@ import Videos from "../Components/Videos";
 import Comments from "../Components/Comments";
 import VideosApiService from "../Services/videos-api-service";
 import CommentsApiService from "../Services/comments-api-service";
+import PoweredBy from '../Assets/Images/powered_by_24g.svg';
 
 export default function VideoBlogPage() {
   const {
@@ -87,6 +88,9 @@ export default function VideoBlogPage() {
         handleSubmitComments={onSubmitComments}
       />
       <Comments comments={videoComments()} />
+      <div className='VideoBlog__poweredby'>
+        <img src={PoweredBy} alt='Powered By 24G' />
+      </div>
     </section>
   );
 }

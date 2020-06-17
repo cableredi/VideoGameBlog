@@ -1,8 +1,10 @@
 import React, { useState, useEffect, useContext } from "react";
+import { Route, Switch } from "react-router-dom";
 import VideosApiService from "./Services/videos-api-service";
 import CommentsApiService from "./Services/comments-api-service";
 import { GlobalContext } from "./Context/GlobalContext";
 import VideoBlogPage from "./Routes/VideoBlogPage";
+import Landing from "./Routes/LandingPage";
 
 export default function App() {
   const { setVideos, setComments } = useContext(GlobalContext);
@@ -27,7 +29,10 @@ export default function App() {
   return (
     <>
       {error && <p className="error">{error}</p>}
-      <VideoBlogPage />
+      <Switch>
+        <Route exact path='/' component={Landing} />
+        <Route exact path="/blog" component={VideoBlogPage} />
+      </Switch>
     </>
   );
 }
